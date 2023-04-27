@@ -1,7 +1,6 @@
 #local settings
 localSettings.json
 package-lock.json
-
 # Logs
 logs
 *.log
