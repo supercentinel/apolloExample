@@ -37,4 +37,15 @@ type Mutation {
     email: String
     telefono: String
   ): Persona
+  EditPersona(
+    id: ID!
+    nnombre: String
+    napellido: String
+    nemail: String
+    ntelefono: String
+  ): Persona
+  DeletePersonaByID
+  (
+    id: ID!
+  ): Persona
 }
