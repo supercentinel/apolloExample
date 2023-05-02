@@ -39,10 +39,10 @@ type Mutation {
   ): Persona
   EditPersona(
     id: ID!
-    nnombre: String
-    napellido: String
-    nemail: String
-    ntelefono: String
+    nombre: String
+    apellido: String
+    email: String
+    telefono: String
   ): Persona
   DeletePersonaByID
   (

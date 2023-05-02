@@ -11,29 +11,21 @@ export const EditPersona = async (
   { db }: iContext,
   info: any
 ) => {
-  try {
-    const persona = await db.sequelize.models.persona.findByPk(args.id);
-    if (!persona) {
-      return persona;
-      //throw new Error(`Persona with ID ${args.id} not found`);
+    const UpdatedPersona = await db.sequelize.models.persona.findByPk(args.id)
+
+    if(UpdatedPersona)
+    {
+        // Update the Persona record
+        await UpdatedPersona.update({
+          nombre: args.nombre,
+          apellido: args.apellido,
+          email: args.email,
+          telefono: args.telefono
+          }
+        );
+        await UpdatedPersona.save();
+        console.log(UpdatedPersona);
     }
 
-    // Update the Persona record
-    persona.set({
-      nombre: args.nombre,
-      apellido: args.apellido,
-      email: args.email,
-      telefono: args.telefono
-      }
-    );
-
- //   console.log(persona.email)
-
-    const updatedPersona = await persona
-
-    return updatedPersona;
-  } catch (error) {
-    console.error(error);
-    //throw new Error('Failed to update Persona record');
-  }
+    return UpdatedPersona;
 };
