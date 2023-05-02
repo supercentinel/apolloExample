@@ -9,10 +9,12 @@ export const DeletePersonaByID = async (
 ) => {
   const ddelPersona = await db.sequelize.models.persona.findByPk(args.id)
 
-  const deletedPersona = await db.sequelize.models.persona.destroy({
-    where: { id: args.id  },
-  });
-
+  if(ddelPersona)
+   {
+      await db.sequelize.models.persona.destroy({
+        where: { id: args.id  },
+      });
+   }
   return ddelPersona;
 };
 
